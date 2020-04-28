@@ -4,21 +4,21 @@
           Presupuesto Disponible:
       </div>
       
-      <div class="presupuesto_valor">{{presupuestoTotal}}</div>
+      <div class="presupuesto_valor">{{presupuestoTotal | currency : 'MXN':'$':'1.2-2'}}</div>
       
       <div class="presupuesto_ingreso limpiarEstilos">
           <div class="presupuesto_ingreso--texto">Ingresos</div>
           <div class="right">
-              <div class="presupuesto_ingreso--valor" [(ngModel)]="ingresos"></div>
+              <div class="presupuesto_ingreso--valor">{{ingresoTotal | currency : 'MXN':'$':'1.2-2'}}</div>
               <div class="presupuesto_ingreso--porcentaje">&nbsp;</div>
           </div>
       </div>
       
       <div class="presupuesto_egreso limpiarEstilos">
           <div class="presupuesto_egreso--text">Egresos</div>
-          <div class="right limpiarEstilos">
-              <div class="presupuesto_egreso--valor" [(ngModel)]="egresos"></div>
-              <div class="presupuesto_egreso--porcentaje">45%</div>
+          <div class="right limpiarEstilos"> 
+              <div class="presupuesto_egreso--valor">- {{egresosTotal | currency : 'MXN':'$':'1.2-2'}}</div>
+              <div class="presupuesto_egreso--porcentaje">{{porcentajeTotal | percent}}</div>
           </div>
       </div>
   </div>

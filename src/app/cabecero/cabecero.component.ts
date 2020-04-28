@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { egresoServicios } from '../egresos/egresos.servicio';
 import { ingresoServicios } from '../ingresos/ingreso.servicio';
 
@@ -8,8 +8,10 @@ import { ingresoServicios } from '../ingresos/ingreso.servicio';
   styleUrls: ['./cabecero.component.css']
 })
 export class CabeceroComponent implements OnInit {
-  ingresos: number;
-  egresos: number;
+  @Input() ingresoTotal: number;
+  @Input() egresosTotal: number;
+  @Input() presupuestoTotal: number;
+  @Input() porcentajeTotal: number;
 
   constructor(private egresoservicio: egresoServicios, private ingresoservicio: ingresoServicios) { }
 
