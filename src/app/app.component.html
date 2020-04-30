@@ -1,14 +1,16 @@
 <app-cabecero
-[ingresoTotal] ="totalIngresos"
-[egresosTotal] ="totalEgresos"
+[ingresoTotal] ="getTotalIngresos()"
+[egresosTotal] ="getTotalEgresos()"
 [presupuestoTotal] ="getPresupuestoTotal()"
 [porcentajeTotal] ="getPorcentajeTotal()"
 ></app-cabecero>
 <app-formulario></app-formulario>
 
   <div class="contenedor limpiarEstilos">
-      <app-ingresos></app-ingresos>
+      <app-ingresos
+      
+      ></app-ingresos>
       <app-egresos
-      [ingresoTotal] = "totalIngresos"
+      [ingresoTotal]="getTotalIngresos()"
       ></app-egresos>      
   </div>

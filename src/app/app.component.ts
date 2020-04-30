@@ -14,22 +14,34 @@ export class AppComponent {
 
   ingresos : Ingresos[] = [];
   egresos : Egresos[] = [];
-  totalIngresos : number;
-  totalEgresos : number;
 
   constructor( private IngresoServicios: ingresoServicios, private  EgresoServicios:egresoServicios){
              this.ingresos = IngresoServicios.ingresos;
              this.egresos = EgresoServicios.egreso;
-             this.totalIngresos = IngresoServicios.TotalIngresos();
-             this.totalEgresos = EgresoServicios.TotalEgresos();
+  }
+
+  getTotalIngresos(){
+    let total: number = 0;
+    this.ingresos.forEach(element =>{
+        total += element.valor;
+    });
+    return total;
+  }
+
+  getTotalEgresos(){
+    let total: number = 0;
+    this.egresos.forEach(element => {
+        total += element.valor;
+    });
+    return total;     
   }
 
   getPorcentajeTotal(){
-    return this.totalEgresos/this.totalIngresos
+    return this.getTotalEgresos()/this.getTotalIngresos()
   }
 
   getPresupuestoTotal(){
-    return  this.totalIngresos - this.totalEgresos
+    return  this.getTotalEgresos() - this.getTotalIngresos()
   }
 
 }
